@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/styles.css?nocache={timestamp}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="../static/sun.png">
+    <title>WeatherApp</title>
+  </head>
+  <body class="jumbotron" onload="init()">
+    <div class="container text-light">
+      <div class="row content">
+        <div class="col-lg-8 col-sm-12 text-center">
+          <h1 class="font-weight-light text-dark" id="day-component"></h1>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+          <div class="form-inline pt-2 d-flex justify-content-center">
+            <div class="form-group form-inline pr-2">
+              <input type="text" class="form-control" id="cityName" placeholder="Search City">
+            </div>
+            <button onclick="getCity()" class="btn btn-outline-dark">Search</button>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center vertical-center">
+        <div class="col-10 text-center opacity-box pt-3">
+          <img src="../static/weather_images/cloud.png" alt="Cloud" height="120" width="120" id="weather-icon">
+          <h1 class="font-weight-light text-uppercase" id="city-name">
+            Riga
+          </h1>
+          <div class="row">
+            <div class="col">
+              As of:
+            </div>
+            <div class="col" id="as-of">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Weather:
+            </div>
+            <div class="col" id="weather">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Temperature: 
+            </div>
+            <div class="col" id="temperature">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Real feel:
+            </div>
+            <div class="col" id="real-feel">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Sunrise: 
+            </div>
+            <div class="col" id="sunrise">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Sunset:
+            </div>
+            <div class="col" id="sunset">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Description:
+            </div>
+            <div class="col" id="description">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              UV index:
+            </div>
+            <div class="col" id="uv-index">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              Humidity:
+            </div>
+            <div class="col" id="humidity">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function init() {
+        let d = new Date()
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const months = [
+          "January", "February", "March",
+          "April", "May", "June", "July",
+          "August", "September", "October",
+          "November", "December"
+        ];
+        document.getElementById("day-component").innerHTML = days[d.getDay()] + ", " + d.getDate() + " " + months[d.getMonth()] ;
+      }
+      function changeIcon() {
+        document.getElementById("weather-icon").src = weatherIcons[Math.floor(Math.random() * Math.floor(5))]
+      }
+      function getCity() {
+        const input = document.getElementById("cityName").value;
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            const response = JSON.parse(this.responseText);
+            document.getElementById("as-of").innerHTML = response.asof;
+            document.getElementById("weather").innerHTML = response.weather;
+            document.getElementById("temperature").innerHTML = response.temperature;
+            document.getElementById("real-feel").innerHTML = response.realfeel;
+            document.getElementById("sunrise").innerHTML = response.sunrise;
+            document.getElementById("sunset").innerHTML = response.sunset;
+            document.getElementById("description").innerHTML = response.description;
+            document.getElementById("uv-index").innerHTML = response.uvindex;
+            document.getElementById("humidity").innerHTML = response.humidity;
+          }
+        };
+        xhttp.open("GET", "/city/"+input, true);
+        xhttp.send();
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

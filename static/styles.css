@@ -1,0 +1,19 @@
+body {
+  color: #fcfcfc !important;
+}
+
+.jumbotron {
+  background-image: url('../static/3.JPG') !important;
+  background-repeat: no-repeat;
+
+}
+
+.vertical-center {
+  height: 70vh;
+  padding-top: 5%;
+}
+
+.opacity-box {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+}
