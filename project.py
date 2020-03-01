@@ -79,7 +79,7 @@ def pullWeatherFromSource(cityname):
     weatherData = {
         "asof": as_of,
         "weather": clouds,
-        "temperature": temperature,
+        "temperature": temperature + "°C",
         "temperature_f": farenh,
         "realfeel": real_feel,
         "sunrise": sun_up,

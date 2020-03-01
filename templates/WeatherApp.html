@@ -9,23 +9,32 @@
     <title>WeatherApp</title>
   </head>
   <body class="jumbotron" onload="init()">
+    <nav class="navbar navbar-dark pt-0 pb-0 fixed-top" style="background-color: #000000" ><img src="../static/logo_name.png " style="height: 22px; width: 111px; margin: 0 auto;">
+      <form class="form-inline">
+        <input class="form-control pt-0 pb-0 mr-2" type="text" placeholder="Search City" aria-label="Search" id="cityName">
+        <a class="btn flg-btn pt-0" onclick="getCity()"><img src="../static/search.png" width="20px" height="20px"></a>
+      </form>
+    </nav>
     <div class="container text-light">
-      <div class="row content">
-        <div class="col-lg-8 col-sm-12 text-center">
-          <h1 class="font-weight-light text-dark" id="day-component"></h1>
+      <div class="row">
+      <div class="col-10">
+      <div class="row conent">
+      
+        <div class="col-lg-6 col-sm-12">
+          <h1 class="font-weight-light text-light" id="day-component" style="font-size: 50px;"></h1>
         </div>
-        <div class="col-lg-4 col-sm-12">
-          <div class="form-inline pt-2 d-flex justify-content-center">
-            <div class="form-group form-inline pr-2">
-              <input type="text" class="form-control" id="cityName" placeholder="Search City">
-            </div>
-            <button onclick="getCity()" class="btn btn-outline-dark">Search</button>
+      <div class="col-lg-6 col-sm-12">
+          <div class="form-group form-inline pr-2">
+            <p class="font-weight-light text-light h1 text-right" id="degree-component" style="font-size: 50px;" >44</p>
           </div>
-        </div>
+
+      </div>
+      </div>
+      </div>
       </div>
       <div class="row justify-content-center vertical-center">
-        <div class="col-10 text-center opacity-box pt-3">
-          <img src="../static/weather_images/cloud.png" alt="Cloud" height="120" width="120" id="weather-icon">
+        <div class="col-10 text-center opacity-box mb-0">
+          <img src="../static/sun.png" alt="Cloud" height="70" width="70" id="weather-icon">
           <h1 class="font-weight-light text-uppercase" id="city-name">
             Riga
           </h1>
@@ -94,7 +103,11 @@
           </div>
         </div>
       </div>
+      
     </div>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom" style="background-color: #000000">
+      <a class="navbar-brand" style="font-size: 0.7rem ;right: 0";>created using selenium, bs4 and flask</a>
+    </nav>
     <script>
       function init() {
         let d = new Date()
@@ -118,7 +131,7 @@
             const response = JSON.parse(this.responseText);
             document.getElementById("as-of").innerHTML = response.asof;
             document.getElementById("weather").innerHTML = response.weather;
-            document.getElementById("temperature").innerHTML = response.temperature;
+            document.getElementById("degree-component").innerHTML = response.temperature;
             document.getElementById("real-feel").innerHTML = response.realfeel;
             document.getElementById("sunrise").innerHTML = response.sunrise;
             document.getElementById("sunset").innerHTML = response.sunset;
@@ -129,6 +142,10 @@
         };
         xhttp.open("GET", "/city/"+input, true);
         xhttp.send();
+      }
+      function changeImage() {
+
+
       }
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
