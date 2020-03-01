@@ -5,21 +5,33 @@ body {
 .jumbotron {
   background-image: url('../static/3.JPG') !important;
   background-repeat: no-repeat;
-
 }
 
 .vertical-center {
-  height: 80vh;
-  padding-top: 5%;
-
+  height: 50rem;
 }
 
 .opacity-box {
   background-color: rgba(0, 0, 0, 0.5);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  height: 100%;
+  bottom: -15px;
 }
 .text-center{
   padding-top: 2%;
+}
 
+@media screen and (max-width: 992px) {
+  #degree-component {
+    text-align: center !important;
+  }
+
+  #day-component {
+    text-align: center !important;
+  }
+
+  .vertical-center {
+    height: 46rem;
+  }
 }

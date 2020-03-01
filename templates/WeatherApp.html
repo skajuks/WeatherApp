@@ -8,37 +8,34 @@
     <link rel="icon" href="../static/sun.png">
     <title>WeatherApp</title>
   </head>
-  <body class="jumbotron" onload="init()">
-    <nav class="navbar navbar-dark pt-0 pb-0 fixed-top" style="background-color: #000000" ><img src="../static/logo_name.png " style="height: 22px; width: 111px; margin: 0 auto;">
+  <body class="jumbotron pb-0 mb-0" onload="init()">
+    <nav class="navbar navbar-dark pt-0 pb-0 fixed-top" style="background-color: #000000" >
+      <img src="../static/logo_name.png " style="height: 22px; width: 111px; margin: 0 auto;">
       <form class="form-inline">
         <input class="form-control pt-0 pb-0 mr-2" type="text" placeholder="Search City" aria-label="Search" id="cityName">
         <a class="btn flg-btn pt-0" onclick="getCity()"><img src="../static/search.png" width="20px" height="20px"></a>
       </form>
     </nav>
     <div class="container text-light">
-      <div class="row">
-      <div class="col-10">
-      <div class="row conent">
-      
-        <div class="col-lg-6 col-sm-12">
-          <h1 class="font-weight-light text-light" id="day-component" style="font-size: 50px;"></h1>
-        </div>
-      <div class="col-lg-6 col-sm-12">
-          <div class="form-group form-inline pr-2">
-            <p class="font-weight-light text-light h1 text-right" id="degree-component" style="font-size: 50px;" >44</p>
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="row mt-3">
+            <div class="col-lg-9 col-sm-12">
+              <h1 class="font-weight-light text-light" id="day-component" style="font-size: 50px;"></h1>
+            </div>
+            <div class="col-lg-3 col-sm-12">
+              <h1 class="font-weight-light text-light text-right mb-0/" id="degree-component" style="font-size: 50px;" >44</p>
+            </div>
           </div>
-
-      </div>
-      </div>
-      </div>
+        </div>
       </div>
       <div class="row justify-content-center vertical-center">
         <div class="col-10 text-center opacity-box mb-0">
-          <img src="../static/sun.png" alt="Cloud" height="70" width="70" id="weather-icon">
-          <h1 class="font-weight-light text-uppercase" id="city-name">
+          <h1 class="font-weight-light text-uppercase text-left pl-4" id="city-name">
             Riga
+            <img src="../static/weather_images/snow.png" alt="" height="50" width="50" id="weather-icon" class="text-left">
           </h1>
-          <div class="row">
+          <div class="row mt-5">
             <div class="col">
               As of:
             </div>
@@ -118,7 +115,7 @@
           "August", "September", "October",
           "November", "December"
         ];
-        document.getElementById("day-component").innerHTML = days[d.getDay()] + ", " + d.getDate() + " " + months[d.getMonth()] ;
+        document.getElementById("day-component").innerHTML = days[d.getDay()] + ", " + ordinal_suffix_of(d.getDate()) + " " + months[d.getMonth()] ;
       }
       function changeIcon() {
         document.getElementById("weather-icon").src = weatherIcons[Math.floor(Math.random() * Math.floor(5))]
@@ -147,6 +144,20 @@
 
 
       }
+      function ordinal_suffix_of(i) {
+        let j = i % 10,
+            k = i % 100;
+        if (j == 1 && k != 11) {
+            return i + "st";
+        }
+        if (j == 2 && k != 12) {
+            return i + "nd";
+        }
+        if (j == 3 && k != 13) {
+            return i + "rd";
+        }
+        return i + "th";
+    }
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
