@@ -8,7 +8,7 @@
     <link rel="icon" href="../static/sun.png">
     <title>WeatherApp</title>
   </head>
-  <body class="jumbotron pb-0 mb-0" onload="init()">
+  <body class="jumbotron pb-0 mb-0" onload="init()" id="bcg" style="background-image: url(../static/1.jpg?234234236);">
     <nav class="navbar navbar-dark pt-0 pb-0 fixed-top" style="background-color: #000000" >
       <img src="../static/logo_name.png " style="height: 22px; width: 111px; margin: 0 auto;">
       <form class="form-inline">
@@ -21,25 +21,26 @@
         <div class="col-10">
           <div class="row mt-3">
             <div class="col-lg-9 col-sm-12">
-              <h1 class="font-weight-light text-light" id="day-component" style="font-size: 50px;"></h1>
+              <h1 class="font-weight-light text-light" id="day-component" style="font-size: 50px; text-shadow: 1px 1px #000000;"></h1>
             </div>
             <div class="col-lg-3 col-sm-12">
-              <h1 class="font-weight-light text-light text-right mb-0/" id="degree-component" style="font-size: 50px;" >44</p>
+              <h1 class="font-weight-light text-light text-right mb-0/" id="degree-component" style="font-size: 50px; text-shadow: 1px 1px #000000;" ></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="row justify-content-center vertical-center">
+      <div class="row justify-content-center vertical-center mb-0">
         <div class="col-10 text-center opacity-box mb-0">
-          <h1 class="font-weight-light text-uppercase text-left pl-4" id="city-name">
-            Riga
-            <img src="../static/weather_images/snow.png" alt="" height="50" width="50" id="weather-icon" class="text-left">
+          <h1 class="justify-content-center font-weight-light text-uppercase pt-4" id="city-name">                 
           </h1>
-          <div class="row mt-5">
+          <img src="" alt="" height="50" width="50" id="weather-icon" class="text-right">
+          <div class="col-lg-12 col-sm-12" id="weatehrcontent">
+          <div class="row mt-12 pl-0">
             <div class="col">
               As of:
             </div>
             <div class="col" id="as-of">
+              sss
             </div>
           </div>
           <div class="row">
@@ -49,30 +50,24 @@
             <div class="col" id="weather">
             </div>
           </div>
+          
           <div class="row">
             <div class="col">
-              Temperature: 
-            </div>
-            <div class="col" id="temperature">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              Real feel:
+              <img src="../static/temperature.png" style="width: 15px; height: 15px;">  Real feel:
             </div>
             <div class="col" id="real-feel">
             </div>
           </div>
           <div class="row">
             <div class="col">
-              Sunrise: 
+              <img src="../static/sunset.png" style="width: 15px; height: 15px;">  Sunrise: 
             </div>
             <div class="col" id="sunrise">
             </div>
           </div>
           <div class="row">
             <div class="col">
-              Sunset:
+              <img src="../static/sunset.png" style="width: 15px; height: 15px;">  Sunset:
             </div>
             <div class="col" id="sunset">
             </div>
@@ -93,17 +88,54 @@
           </div>
           <div class="row">
             <div class="col">
-              Humidity:
+              <img src="../static/humidity.png" style="width: 15px; height: 15px;">  Humidity:
             </div>
             <div class="col" id="humidity">
             </div>
           </div>
+          <div class="container pt-4">
+            <div class="row">
+              <div class="col-sm text-center card mr-1" id="tmr" style="background-color: rgba(0, 0, 0, 1); opacity: 0.8;">
+                <div class="card-body">
+                  <h6 class="card-title text-center">Tonight</h6>
+                  <p class="card-title text-center" id="tonight-clouds" style="font-size: 14px;">sss</p>
+                    <img src="" alt="" height="50" width="50" id="tonight-pic" class="text-center">               
+                  <h5 class="card-title text-center" id="temperature-tonight">5</h5>
+                  <h7 class="card-title text-center" id="thl">asd</h7>               
+                </div>
+              </div>
+              <div class="col-sm text-center card mr-1" id="tmr" style="background-color: rgba(0, 0, 0, 1); opacity: 0.8;">
+                <div class="card-body">
+                  <h6 class="card-title text-center">Tomorrow</h6>
+                  <p class="card-title text-center" id="tomorrow-clouds" style="font-size: 14px;">sss</p>
+                    <img src="" alt="" height="50" width="50" id="tomorrow-pic" class="text-center">               
+                  <h5 class="card-title text-center" id="temperature-tomorrow">5</h5>
+                  <h7 class="card-title text-center" id="tmhl">asd</h7>               
+                </div>
+              </div>
+              <div class="col-sm text-center card mr-1" id="tmr" style="background-color: rgba(0, 0, 0, 1); opacity: 0.8;">
+                <div class="card-body">
+                  <h6 class="card-title text-center">Tomorrow Night</h6>
+                  <p class="card-title text-center" id="tn-clouds" style="font-size: 14px;">sss</p>
+                    <img src="" alt="" height="50" width="50" id="tn-pic" class="text-center">               
+                  <h5 class="card-title text-center" id="temperature-tn">5</h5>
+                  <h7 class="card-title text-center" id="tmnhl">asd</h7>               
+                </div>
+              </div>
+            </div>
+              <div class="row mt-3">
+                <div class="col-sm" style="background-color: #000000;">
+                asdasdasdas</div>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
       
     </div>
-    <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom" style="background-color: #000000">
-      <a class="navbar-brand" style="font-size: 0.7rem ;right: 0";>created using selenium, bs4 and flask</a>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom mt-0" style="background-color: #000000">
+      <a class="text-right pr-5" style="font-size: 0.7rem ;";>created using selenium, bs4, bootstrap4 and flask</a>
+      <a class="text-end" style="font-size: 0.7rem ;">Roberts Kalve 2020</a>
     </nav>
     <script>
       function init() {
@@ -118,7 +150,8 @@
         document.getElementById("day-component").innerHTML = days[d.getDay()] + ", " + ordinal_suffix_of(d.getDate()) + " " + months[d.getMonth()] ;
       }
       function changeIcon() {
-        document.getElementById("weather-icon").src = weatherIcons[Math.floor(Math.random() * Math.floor(5))]
+        const response = JSON.parse(this.responseText);
+        document.getElementById("weather-icon").src = response.image;
       }
       function getCity() {
         const input = document.getElementById("cityName").value;
@@ -128,21 +161,32 @@
             const response = JSON.parse(this.responseText);
             document.getElementById("as-of").innerHTML = response.asof;
             document.getElementById("weather").innerHTML = response.weather;
-            document.getElementById("degree-component").innerHTML = response.temperature;
+            document.getElementById("degree-component").innerHTML = response.temperaturece;
             document.getElementById("real-feel").innerHTML = response.realfeel;
             document.getElementById("sunrise").innerHTML = response.sunrise;
             document.getElementById("sunset").innerHTML = response.sunset;
             document.getElementById("description").innerHTML = response.description;
             document.getElementById("uv-index").innerHTML = response.uvindex;
             document.getElementById("humidity").innerHTML = response.humidity;
+            document.getElementById("weather-icon").src = response.image;
+            document.getElementById("city-name").innerHTML = response.currcity;
+            document.getElementById("bcg").style = response.currbcg;
+            document.getElementById("temperature-tonight").innerHTML = response.tonighttemp;
+            document.getElementById("thl").innerHTML = response.tonighthl;
+            document.getElementById("tonight-clouds").innerHTML = response.tonightclouds;
+            document.getElementById("tonight-pic").src = response.tonightimg;
+            document.getElementById("temperature-tomorrow").innerHTML = response.tomorrowtemp;
+            document.getElementById("tmhl").innerHTML = response.tomorrowhl;
+            document.getElementById("tomorrow-clouds").innerHTML = response.tomorrowclouds;
+            document.getElementById("tomorrow-pic").src = response.tomorrowimg;
+            document.getElementById("temperature-tn").innerHTML = response.tnt;
+            document.getElementById("tmnhl").innerHTML = response.tnhl;
+            document.getElementById("tn-clouds").innerHTML = response.tnclouds;
+            document.getElementById("tn-pic").src = response.tnimage;
           }
         };
         xhttp.open("GET", "/city/"+input, true);
         xhttp.send();
-      }
-      function changeImage() {
-
-
       }
       function ordinal_suffix_of(i) {
         let j = i % 10,

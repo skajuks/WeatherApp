@@ -3,8 +3,7 @@ body {
 }
 
 .jumbotron {
-  background-image: url('../static/3.JPG') !important;
-  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .vertical-center {
@@ -12,11 +11,10 @@ body {
 }
 
 .opacity-box {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   height: 100%;
-  bottom: -15px;
 }
 .text-center{
   padding-top: 2%;
@@ -34,4 +32,19 @@ body {
   .vertical-center {
     height: 46rem;
   }
+}
+#city-name {
+  font-size: 1.5rem;  
+
+}
+.card{
+  background-color: rgba(0, 0, 0, 0.9);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 100%;
+  transition: all .2s ease-in-out;
+
+}
+.card:hover{
+  transform: scale(1.1);
 }
