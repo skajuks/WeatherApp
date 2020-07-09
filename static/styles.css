@@ -3,7 +3,7 @@ body {
 }
 
 .jumbotron {
-  background-size: cover;
+  background-size: fixed;
 }
 
 .vertical-center {
